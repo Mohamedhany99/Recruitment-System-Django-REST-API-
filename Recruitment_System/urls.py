@@ -16,6 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import hr_management.api_view
+import hr_management.views
+
 urlpatterns = [
+    path('api/v1/emp',hr_management.api_view.EmpList.as_view()),
+    path('api/v1/emp/create',hr_management.api_view.EmpCreate.as_view()),
+
+    path('', hr_management.views.index, name='Employee-login'),
+
+
     path('admin/', admin.site.urls),
 ]
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
