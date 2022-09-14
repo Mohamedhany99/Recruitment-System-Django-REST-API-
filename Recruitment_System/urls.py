@@ -20,8 +20,9 @@ import hr_management.api_view
 import hr_management.views
 
 urlpatterns = [
-    path('api/v1/emp',hr_management.api_view.EmpList.as_view()),
-    path('api/v1/emp/create',hr_management.api_view.EmpCreate.as_view()),
+    path('api/v1/emp/',hr_management.api_view.EmpList.as_view()),
+    path('api/v1/emp/create/',hr_management.api_view.EmpCreate.as_view()),
+    path('api/v1/emp/<int:id>/',hr_management.api_view.EmpRetrieveUpdateDestroy.as_view()),
 
     path('', hr_management.views.index, name='Employee-login'),
 
